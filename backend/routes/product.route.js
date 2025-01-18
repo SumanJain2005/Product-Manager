@@ -5,4 +5,5 @@ router.get("/", getAllProducts )
 router.post("/", postProduct);
 router.put("/:id", updateProduct) 
 router.delete("/:id", deleteProduct)
+
 export default router;

@@ -14,9 +14,8 @@ export const postProduct = async (req, res) => {
         const product = req.body;
         if(!product.name || !product.price || !product.image || !product.category){
             return res.json(
-                {success: false, message: "All fields are required"},
-                {status: 400}
-            )}
+                {success: false, message: "All fields are required"}
+            ).status(400)}
         const newProduct = new Product(product); // creating a new product
         try {
             await newProduct.save(); //saving in the database
@@ -26,7 +25,7 @@ export const postProduct = async (req, res) => {
         } catch (error) {
             return res.json(
                 {success: false, message: "Error saving product"},
-            ).status(500)
+            ).status(501)
         }
 }
 export const updateProduct = async (req, res)=>{
